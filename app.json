@@ -7,7 +7,8 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.codepush-demo"
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +17,26 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.codepushdemo"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "@bitrise/code-push-sdk/expo",
+        {
+          "ios": {
+            "CodePushDeploymentKey": "REPLACE_WITH_IOS_DEPLOYMENT_KEY",
+            "CodePushServerURL": "https://REPLACE_WITH_WORKSPACE_SLUG.codepush.bitrise.io"
+          },
+          "android": {
+            "CodePushDeploymentKey": "REPLACE_WITH_ANDROID_DEPLOYMENT_KEY",
+            "CodePushServerURL": "https://REPLACE_WITH_WORKSPACE_SLUG.codepush.bitrise.io"
+          }
+        }
+      ]
+    ]
   }
 }
